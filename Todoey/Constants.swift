@@ -19,4 +19,17 @@ struct K{
         static let action = "Add Item"
         static let placeholder = "Create new item"
     }
+    
+    struct categoryView{
+        static let cellIdentifier = "CategoryCell"
+        
+        static public let goToItems = "GoToItems"
+    }
+    
+    struct categoryAlert{
+        static let title = "Add new Category"
+        static let message = ""
+        static let action = "Add Category"
+        static let placeholder = "Create new Category"
+    }
 }

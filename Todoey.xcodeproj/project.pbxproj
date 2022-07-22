@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CB2172B42883C70600D27EA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2172B32883C70600D27EA1 /* Constants.swift */; };
-		CB6C82212886102B00893E0B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6C82202886102B00893E0B /* Item.swift */; };
+		CB6C8249288623AA00893E0B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB6C8247288623AA00893E0B /* DataModel.xcdatamodeld */; };
+		CB6C824B2888ED1600893E0B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6C824A2888ED1600893E0B /* CategoryViewController.swift */; };
 		EB2BE4FA239524DB00FB933B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BE4F9239524DB00FB933B /* AppDelegate.swift */; };
 		EB2BE4FE239524DB00FB933B /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BE4FD239524DB00FB933B /* TodoListViewController.swift */; };
 		EB2BE501239524DB00FB933B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2BE4FF239524DB00FB933B /* Main.storyboard */; };
@@ -18,7 +19,8 @@
 
 /* Begin PBXFileReference section */
 		CB2172B32883C70600D27EA1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CB6C82202886102B00893E0B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		CB6C8248288623AA00893E0B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		CB6C824A2888ED1600893E0B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		EB2BE4F6239524DB00FB933B /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2BE4F9239524DB00FB933B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB2BE4FD239524DB00FB933B /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +44,7 @@
 		CB6C821F2886101B00893E0B /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				CB6C82202886102B00893E0B /* Item.swift */,
+				CB6C8247288623AA00893E0B /* DataModel.xcdatamodeld */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -58,6 +60,7 @@
 		CB6C8223288610A900893E0B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CB6C824A2888ED1600893E0B /* CategoryViewController.swift */,
 				EB2BE4FD239524DB00FB933B /* TodoListViewController.swift */,
 			);
 			path = Controller;
@@ -165,9 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB6C824B2888ED1600893E0B /* CategoryViewController.swift in Sources */,
 				EB2BE4FE239524DB00FB933B /* TodoListViewController.swift in Sources */,
+				CB6C8249288623AA00893E0B /* DataModel.xcdatamodeld in Sources */,
 				EB2BE4FA239524DB00FB933B /* AppDelegate.swift in Sources */,
-				CB6C82212886102B00893E0B /* Item.swift in Sources */,
 				CB2172B42883C70600D27EA1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +374,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CB6C8247288623AA00893E0B /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CB6C8248288623AA00893E0B /* DataModel.xcdatamodel */,
+			);
+			currentVersion = CB6C8248288623AA00893E0B /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EB2BE4EE239524DB00FB933B /* Project object */;
 }
