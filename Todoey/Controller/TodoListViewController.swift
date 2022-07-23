@@ -8,8 +8,11 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class TodoListViewController: SwipeTableViewController {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var todoItems: Results<Item>?
     let realm = try! Realm()
@@ -19,9 +22,23 @@ class TodoListViewController: SwipeTableViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorStyle = .none
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let colorHex = selectedCategory?.color{
+            title = selectedCategory!.name
+            guard let navBar = navigationController?.navigationBar else {fatalError("Navigation controller does not exist")}
+            guard let navBarTintColor = UIColor(hexString: colorHex) else {fatalError("Color not valid")}
+            
+            navBar.backgroundColor = navBarTintColor
+            searchBar.barTintColor = navBarTintColor
+            navBar.tintColor = ContrastColorOf(navBarTintColor, returnFlat: true)
+            navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ContrastColorOf(navBarTintColor, returnFlat: true)]
+        }
     }
     
     //MARK: - Delete Data from Swipe
@@ -47,7 +64,15 @@ class TodoListViewController: SwipeTableViewController {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if let item = todoItems?[indexPath.row]{
             cell.textLabel?.text = item.title
-            
+            if let color = UIColor(hexString: selectedCategory!.color)?.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(todoItems!.count)){
+                cell.backgroundColor = color
+                cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
+                let attributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.boldSystemFont(ofSize: 20)
+                ]
+                let attributedString = NSAttributedString(string: cell.textLabel!.text!, attributes: attributes)
+                cell.textLabel?.attributedText = attributedString
+            }
             cell.accessoryType = item.done ? .checkmark : .none
         } else {
             cell.textLabel?.text = "No Items Added"

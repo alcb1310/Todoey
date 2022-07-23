@@ -41,12 +41,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" leftItemsSupplementBackButton="YES" id="yde-n5-oji">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xtz-Mn-TbC">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addButtonPressed:" destination="8Og-FZ-Zon" id="Sdl-xs-HVN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="XEt-Sc-z5K" id="V7K-gq-z4r"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eca-8I-xVK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -77,7 +79,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Todoey" id="gsA-G0-DyH">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="IAE-Sa-L43">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addButtonPressed:" destination="Kv7-NS-RF3" id="Yvw-CV-aBt"/>
                             </connections>
@@ -96,10 +97,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t8w-8m-T4Z" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TRV-P1-Sh0">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="TRV-P1-Sh0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="107.5"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <color key="barTintColor" systemColor="systemBlueColor"/>
                         <textAttributes key="titleTextAttributes">

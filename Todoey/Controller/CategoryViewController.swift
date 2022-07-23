@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class CategoryViewController: SwipeTableViewController {
     
@@ -18,8 +19,14 @@ class CategoryViewController: SwipeTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadCategories()
+        
+        tableView.separatorStyle = .none
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        guard let navBar = navigationController?.navigationBar else {fatalError("Navigation controller does not exist")}
+        navBar.backgroundColor = UIColor(hexString: "1D98F6")
+    }
     //MARK: - Delete Data from Swipe
     override func updateModel(at indexPath: IndexPath) {
         if let categoryToDelete = self.categoriesResults?[indexPath.row]{
@@ -52,6 +59,7 @@ class CategoryViewController: SwipeTableViewController {
             
             let newCategory = Category()
             newCategory.name = textField.text!
+            newCategory.color = UIColor.randomFlat().hexValue()
             
             self.save(category: newCategory)
         }
@@ -69,7 +77,11 @@ class CategoryViewController: SwipeTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        cell.textLabel?.text = categoriesResults?[indexPath.row].name ?? "No Categories Added yet"
+        guard let category = categoriesResults?[indexPath.row] else {fatalError("No category selected")}
+        guard let color = UIColor(hexString: category.color) else {fatalError("Invalid color")}
+        cell.textLabel?.text = category.name
+        cell.backgroundColor = color
+        cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true) 
         
         return cell
     }
